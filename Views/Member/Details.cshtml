@@ -1,0 +1,81 @@
+@model AspNet_MVC_Session.Models.Member
+
+@{
+    ViewData["Title"] = "Member Details";
+}
+
+<h1>
+    Member Details
+</h1>
+<hr />
+<div>
+    <table class="table">
+        <tbody>
+            <tr>
+                <th scope="row">
+                    @Html.DisplayNameFor(model => model.FirstName)
+                </th>
+                <td>
+                    @Html.DisplayFor(model => model.FirstName)
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">
+                    @Html.DisplayNameFor(model => model.LastName)
+                </th>
+                <td>
+                    @Html.DisplayFor(model => model.LastName)
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">
+                    @Html.DisplayNameFor(model => model.Gender)
+                </th>
+                <td>
+                    @Html.DisplayFor(model => model.Gender)
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">
+                    @Html.DisplayNameFor(model => model.DOB)
+                </th>
+                <td>
+                    @Html.DisplayFor(model => model.DOB)
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">
+                    @Html.DisplayNameFor(model => model.PhoneNumber)
+                </th>
+                <td>
+                    @Html.DisplayFor(model => model.PhoneNumber)
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">
+                    @Html.DisplayNameFor(model => model.BirthPlace)
+                </th>
+                <td>
+                    @Html.DisplayFor(model => model.BirthPlace)
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">
+                    @Html.DisplayNameFor(model => model.StartDate)
+                </th>
+                <td>
+                    @Html.DisplayFor(model => model.StartDate)
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">
+                    @Html.DisplayNameFor(model => model.EndDate)
+                </th>
+                <td>
+                    @Html.DisplayFor(model => model.EndDate)
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>
