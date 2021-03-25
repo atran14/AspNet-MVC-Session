@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AspNet_MVC_Session.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -27,6 +28,7 @@ namespace AspNet_MVC_Session
             services.AddControllersWithViews();
             services.AddSession();
             services.AddTransient<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddTransient<LocationService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

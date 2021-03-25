@@ -1,7 +1,12 @@
-@model AspNet_MVC_Session.Models.Member
+@using AspNet_MVC_Session.Services
+@using AspNet_MVC_Session.Models
+
+@model Member
+@inject LocationService LocationService
 
 @{
     ViewData["Title"] = "Create Member";
+    var locationsList = LocationService.GetLocationsList();
 }
 
 <h1>
