@@ -29,7 +29,7 @@ namespace AspNet_MVC_Session.Controllers
             {
                 var searchResult =
                     HomeController.userList
-                    .Where(s => s.Id == user.Id && s.Password == user.Password);
+                    .Where(s => s.Username == user.Username && s.Password == user.Password);
 
                 bool success = searchResult.Count() == 1;
                 if (success)

@@ -12,7 +12,7 @@ namespace AspNet_MVC_Session.Services
                 "Thanh Hoa",
                 "Hai Phong",
                 "Nghe An",
-                "TP Ho Chi Minh"
+                "TP HCM"
             };
         }
     }
