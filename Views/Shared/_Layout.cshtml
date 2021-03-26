@@ -37,20 +37,11 @@
                                 asp-action="Privacy">Privacy</a>
                         </li>
 
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
-                                aria-expanded="false">Dropdown</a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Details</a></li>
-                                <li><a class="dropdown-item" href="#">Add</a></li>
-                                <li><a class="dropdown-item" href="#">Delete</a></li>                                
-                            </ul>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Member" asp-action="Details">Members</a>
                         </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Member"
-                                asp-action="Details">Members</a>
-                        </li>
+
                         <li class="nav-item">
                             @if (currentSessionUsername != null)
                             {
@@ -76,6 +67,7 @@
                             </button>
                             }
                         </li>
+
                     </ul>
                 </div>
             </div>

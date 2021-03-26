@@ -1,81 +1,122 @@
+@using System
 @model AspNet_MVC_Session.Models.Member
 
 @{
     ViewData["Title"] = "Member Details";
+    List<Member> membersList = ViewBag.MembersList;
 }
 
 <h1>
     Member Details
 </h1>
 <hr />
-<div>
-    <table class="table">
-        <tbody>
-            <tr>
-                <th scope="row">
-                    @Html.DisplayNameFor(model => model.FirstName)
-                </th>
-                <td>
-                    @Html.DisplayFor(model => model.FirstName)
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">
-                    @Html.DisplayNameFor(model => model.LastName)
-                </th>
-                <td>
-                    @Html.DisplayFor(model => model.LastName)
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">
-                    @Html.DisplayNameFor(model => model.Gender)
-                </th>
-                <td>
-                    @Html.DisplayFor(model => model.Gender)
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">
-                    @Html.DisplayNameFor(model => model.DOB)
-                </th>
-                <td>
-                    @Html.DisplayFor(model => model.DOB)
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">
-                    @Html.DisplayNameFor(model => model.PhoneNumber)
-                </th>
-                <td>
-                    @Html.DisplayFor(model => model.PhoneNumber)
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">
-                    @Html.DisplayNameFor(model => model.BirthPlace)
-                </th>
-                <td>
-                    @Html.DisplayFor(model => model.BirthPlace)
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">
-                    @Html.DisplayNameFor(model => model.StartDate)
-                </th>
-                <td>
-                    @Html.DisplayFor(model => model.StartDate)
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">
-                    @Html.DisplayNameFor(model => model.EndDate)
-                </th>
-                <td>
-                    @Html.DisplayFor(model => model.EndDate)
-                </td>
-            </tr>
 
-        </tbody>
-    </table>
+<div id="accordion">
+
+    @if (membersList.Count() == 0)
+    {
+        <div>There are no members in the list</div>
+    }
+    else
+    {        
+        @for (int i = 0; i < membersList.Count(); i++)
+        {
+            <div class="card">
+                <div class="card-header" id=@($"heading{i}")>
+                    <h5 class="mb-0">
+                        <button class="btn btn-link" data-toggle="collapse" data-target=@($"#collapse{i}") aria-expanded="true"
+                            aria-controls=@($"collapse{i}")>
+                            @{
+                                var currentMember = membersList[i];
+                                <text>@($"{currentMember.LastName} {currentMember.FirstName}")</text>
+                            }
+                        </button>
+                    </h5>
+                </div>
+
+                <div id=@($"collapse{i}") class="collapse" aria-labelledby=@($"heading{i}") data-parent="#accordion">
+                    <div class="card-body">
+                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf
+                        moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+                        Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda
+                        shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea
+                        proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim
+                        aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                    </div>
+                </div>
+            </div>
+        } 
+    }
 </div>
+
+@* <div>
+    <table class="table">
+    <tbody>
+    <tr>
+    <th scope="row">
+    @Html.DisplayNameFor(model => model.FirstName)
+    </th>
+    <td>
+    @Html.DisplayFor(model => model.FirstName)
+    </td>
+    </tr>
+    <tr>
+    <th scope="row">
+    @Html.DisplayNameFor(model => model.LastName)
+    </th>
+    <td>
+    @Html.DisplayFor(model => model.LastName)
+    </td>
+    </tr>
+    <tr>
+    <th scope="row">
+    @Html.DisplayNameFor(model => model.Gender)
+    </th>
+    <td>
+    @Html.DisplayFor(model => model.Gender)
+    </td>
+    </tr>
+    <tr>
+    <th scope="row">
+    @Html.DisplayNameFor(model => model.DOB)
+    </th>
+    <td>
+    @Html.DisplayFor(model => model.DOB)
+    </td>
+    </tr>
+    <tr>
+    <th scope="row">
+    @Html.DisplayNameFor(model => model.PhoneNumber)
+    </th>
+    <td>
+    @Html.DisplayFor(model => model.PhoneNumber)
+    </td>
+    </tr>
+    <tr>
+    <th scope="row">
+    @Html.DisplayNameFor(model => model.BirthPlace)
+    </th>
+    <td>
+    @Html.DisplayFor(model => model.BirthPlace)
+    </td>
+    </tr>
+    <tr>
+    <th scope="row">
+    @Html.DisplayNameFor(model => model.StartDate)
+    </th>
+    <td>
+    @Html.DisplayFor(model => model.StartDate)
+    </td>
+    </tr>
+    <tr>
+    <th scope="row">
+    @Html.DisplayNameFor(model => model.EndDate)
+    </th>
+    <td>
+    @Html.DisplayFor(model => model.EndDate)
+    </td>
+    </tr>
+
+    </tbody>
+    </table>
+    </div> *@
