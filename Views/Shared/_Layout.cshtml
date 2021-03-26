@@ -4,7 +4,7 @@
 
 @{
     var currentSessionUsername =
-        HttpContextAccessor.HttpContext.Session.GetString(LoginController.CURRENT_LOGIN_USERNAME_KEY);
+            HttpContextAccessor.HttpContext.Session.GetString(LoginController.CURRENT_LOGIN_USERNAME_KEY);
 }
 
 <!DOCTYPE html>
@@ -36,22 +36,35 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home"
                                 asp-action="Privacy">Privacy</a>
                         </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+                                aria-expanded="false">Dropdown</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Details</a></li>
+                                <li><a class="dropdown-item" href="#">Add</a></li>
+                                <li><a class="dropdown-item" href="#">Delete</a></li>                                
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Member"
+                                asp-action="Details">Members</a>
+                        </li>
                         <li class="nav-item">
                             @if (currentSessionUsername != null)
                             {
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
                                     Welcome, @(currentSessionUsername)!
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <form asp-controller="Login" asp-action="Logout" class="dropdown-item">
-                                        <button 
-                                            class="btn btn-danger my-2 my-sm-0"
-                                            type="submit">
+                                        <button class="btn btn-danger my-2 my-sm-0" type="submit">
                                             Logout
                                         </button>
-                                    </form>                                    
+                                    </form>
                                 </div>
                             </li>
                             }

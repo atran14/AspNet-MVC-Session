@@ -45,7 +45,13 @@
             </div>
             <div class="form-group">
                 <label asp-for="BirthPlace" class="control-label"></label>
-                <input asp-for="BirthPlace" class="form-control" />
+                @* <input asp-for="BirthPlace" class="form-control" /> *@
+                <select name="birthPlace" class="form-control">
+                    @foreach (var birthPlaceString in locationsList)
+                    {
+                        <option>@(birthPlaceString)</option>
+                    }
+                </select>
                 <span asp-validation-for="BirthPlace" class="text-danger"></span>
             </div>
             <div class="form-group">

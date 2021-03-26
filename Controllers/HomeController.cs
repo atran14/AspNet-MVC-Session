@@ -12,36 +12,38 @@ namespace AspNet_MVC_Session.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        public static List<Role> roleList = new List<Role>();
-        public static List<User> userList = new List<User>();
-
-        public HomeController(ILogger<HomeController> logger)
+        public static List<Role> roleList = new List<Role>
         {
-            _logger = logger;
-
-            roleList.Add(new Role
+            new Role
             {
                 Id = 0,
                 Name = "Admin"
-            });
-            roleList.Add(new Role
+            },
+            new Role
             {
                 Id = 1,
                 Name = "Visitor"
-            });
-
-            userList.Add(new User
+            }
+        };
+        public static List<User> userList = new List<User>
+        {
+            new User
             {
                 Id = 0,
                 Username = "admin",
                 Password = "12"
-            });
-            userList.Add(new User
+            },            
+            new User
             {
                 Id = 1,
                 Username = "notAdmin",
                 Password = "1"
-            });
+            }
+        };
+
+        public HomeController(ILogger<HomeController> logger)
+        {
+            _logger = logger;            
         }
 
         public IActionResult Index()
